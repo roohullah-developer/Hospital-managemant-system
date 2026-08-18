@@ -1,1 +1,4 @@
  1,ali,23,sd
+ 3,sdf,56,ert
+ 2,Nadir,25,swelling
+ 4,zafar,30,malaria

@@ -1,0 +1,1 @@
+1,4,3,diabetes,fatigue,frequent urination,regular exercise,metformin 500mg,18-8-2026,22-8-2026,Discharged

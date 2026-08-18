@@ -14,7 +14,7 @@ class Patient:
         self.name = name
         self.age = age
         self.disease = disease
-        print("patient Successfully added")
+
     def display_patient(self):
         for patient in patients_dict.values():
             print("-"* 35)
@@ -117,48 +117,50 @@ def load_patient():
         print("File not found!")
 
 
-load_patient()
-try:
-    choice = 'y'
-    while choice == 'y' or choice == 'Y':
-        print("*" * 35)
-        print("Welcome to Patient Management Module")
-        print("*" * 35)
-        print("1.add patient")
-        print("2.view all patients")
-        print("3.search patient")
-        print("4.update patient")
-        print("5.delete patient")
-        print("Back to main menue")
 
-        ch = input("Enter yor choice: ")
-        if ch == '1':
-            
-            patient_id = int(input("Enter the patient id: "))
-            if patient_id in patients_dict:
-                raise ValueError("patient id already exist")
-            patient_name = input("Enter patient_name: ")
-            patient_age = int(input("Enter Patient Age: "))
-            patient_disease = (input("Enter patient Disease: "))
-            patient = Patient(patient_id,patient_name,patient_age,patient_disease)
-            patients_dict[patient_id] = patient
-            save_patient()
+def patient_menu():
+    load_patient()
+    try:
+        choice = 'y'
+        while choice == 'y' or choice == 'Y':
+            print("*" * 35)
+            print("Welcome to Patient Management Module")
+            print("*" * 35)
+            print("1.add patient")
+            print("2.view all patients")
+            print("3.search patient")
+            print("4.update patient")
+            print("5.delete patient")
+            print("Back to main menue")
 
-        elif ch == '2':
-            patient.display_patient()
-        elif ch == '3':
-            patient.search_patient()
-        elif ch == '4':
-            patient.update_patient()
-        elif ch == '5':
-            patient.delete_patient()
-        elif ch =='6':
-            print("\nReturning to Main Menu...")
-            break
-        else:
-            print("Invalid choice! Please select 1-6...")
+            ch = input("Enter yor choice: ")
+            if ch == '1':
+                
+                patient_id = int(input("Enter the patient id: "))
+                if patient_id in patients_dict:
+                    raise ValueError("patient id already exist")
+                patient_name = input("Enter patient_name: ")
+                patient_age = int(input("Enter Patient Age: "))
+                patient_disease = (input("Enter patient Disease: "))
+                patient = Patient(patient_id,patient_name,patient_age,patient_disease)
+                patients_dict[patient_id] = patient
+                save_patient()
 
-except ValueError as e:
-    print("Error!",e)
+            elif ch == '2':
+                patient.display_patient()
+            elif ch == '3':
+                patient.search_patient()
+            elif ch == '4':
+                patient.update_patient()
+            elif ch == '5':
+                patient.delete_patient()
+            elif ch =='6':
+                print("\nReturning to Main Menu...")
+                break
+            else:
+                print("Invalid choice! Please select 1-6...")
+
+    except ValueError as e:
+        print("Error!",e)
 
 
